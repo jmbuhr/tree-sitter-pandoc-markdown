@@ -1,12 +1,33 @@
 {
   "grammars": [
     {
-      "name": "pandoc_markdown",
+      "name": "pandoc-markdown",
       "camelcase": "PandocMarkdown",
-      "scope": "source.pandoc_markdown",
-      "path": ".",
+      "scope": "text.pandoc_markdown",
+      "path": "tree-sitter-pandoc-markdown",
+      "external-files": [
+        "common/common.js"
+      ],
+      "file-types": [
+        "md",
+        "qmd",
+        "rmd"
+      ],
+      "highlights": "tree-sitter-pandoc-markdown/queries/highlights.scm",
+      "injections": "tree-sitter-pandoc-markdown/queries/injections.scm",
+      "injection-regex": "^(markdown|md|qmd|rmd)$"
+    },
+    {
+      "name": "pandoc-markdown",
+      "camelcase": "PandocMarkdown",
+      "scope": "text.pandoc_markdown_inline",
+      "path": "tree-sitter-pandoc-markdown-inline",
+      "external-files": [
+        "common/common.js"
+      ],
       "file-types": null,
-      "injection-regex": "^pandoc_markdown$"
+      "highlights": "tree-sitter-pandoc-markdown-inline/queries/highlights.scm",
+      "injections": "tree-sitter-pandoc-markdown-inline/queries/injections.scm"
     }
   ],
   "metadata": {

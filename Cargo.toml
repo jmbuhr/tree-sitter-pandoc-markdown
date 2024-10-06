@@ -8,20 +8,45 @@ readme = "README.md"
 keywords = ["incremental", "parsing", "tree-sitter", "pandoc-markdown"]
 categories = ["parsing", "text-editors"]
 repository = "https://github.com/jmbuhr/tree-sitter-pandoc-markdown"
-edition = "2021"
 autoexamples = false
 
 build = "bindings/rust/build.rs"
-include = ["bindings/rust/*", "grammar.js", "queries/*", "src/*"]
+include = [
+  "bindings/rust/*",
+  "tree-sitter-pandoc-markdown/src/*",
+  "tree-sitter-pandoc-markdown-inline/src/*",
+  "tree-sitter-pandoc-markdown/grammar.js",
+  "tree-sitter-pandoc-markdown-inline/grammar.js",
+  "tree-sitter-pandoc-markdown/queries/*",
+  "tree-sitter-pandoc-markdown-inline/queries/*",
+  "common/grammar.js",
+  "common/html_entities.json",
+]
+
+[features]
+parser = ["tree-sitter"]
 
 [lib]
 path = "bindings/rust/lib.rs"
 
 [dependencies]
-tree-sitter-language = "0.1"
-
-[build-dependencies]
-cc = "1.1.22"
+tree-sitter-language = "0.1.0"
+tree-sitter = { version = "0.23", optional = true }
 
 [dev-dependencies]
-tree-sitter = "0.24.2"
+tree-sitter = "0.23.0"
+
+[build-dependencies]
+cc = "^1.0.89"
+
+[[bin]]
+name = "benchmark"
+path = "bindings/rust/benchmark.rs"
+required-features = ["parser"]
+
+[profile.release]
+debug = true
+
+[package.metadata.docs.rs]
+features = ["parser"]
+rustdoc-args = ["--cfg", "docsrs"]
