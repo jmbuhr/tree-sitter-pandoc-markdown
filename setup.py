@@ -1,4 +1,4 @@
-from os.path import isdir, join
+from pathlib import Path
 from platform import system
 
 from setuptools import Extension, find_packages, setup
@@ -8,9 +8,12 @@ from wheel.bdist_wheel import bdist_wheel
 
 class Build(build):
     def run(self):
-        if isdir("queries"):
-            dest = join(self.build_lib, "tree_sitter_pandoc_markdown", "queries")
-            self.copy_tree("queries", dest)
+        if (block_queries := Path("tree-sitter-pandoc-markdown", "queries")).is_dir():
+            dest = Path(self.build_lib, "tree_sitter_pandoc_markdown", "queries", "markdown")
+            self.copy_tree(str(block_queries), str(dest))
+        if (inline_queries := Path("tree-sitter-pandoc-markdown-inline", "queries")).is_dir():
+            dest = Path(self.build_lib, "tree_sitter_pandoc_markdown", "queries", "pandoc_markdown_inline")
+            self.copy_tree(str(inline_queries), str(dest))
         super().run()
 
 
@@ -35,22 +38,19 @@ setup(
             name="_binding",
             sources=[
                 "bindings/python/tree_sitter_pandoc_markdown/binding.c",
-                "src/parser.c",
-                # NOTE: if your language uses an external scanner, add it here.
+                "tree-sitter-pandoc-markdown/src/parser.c",
+                "tree-sitter-pandoc-markdown/src/scanner.c",
+                "tree-sitter-pandoc-markdown-inline/src/parser.c",
+                "tree-sitter-pandoc-markdown-inline/src/scanner.c",
             ],
-            extra_compile_args=[
-                "-std=c11",
-                "-fvisibility=hidden",
-            ] if system() != "Windows" else [
-                "/std:c11",
-                "/utf-8",
-            ],
+            extra_compile_args=(
+                ["-std=c11"] if system() != "Windows" else []
+            ),
             define_macros=[
                 ("Py_LIMITED_API", "0x03090000"),
-                ("PY_SSIZE_T_CLEAN", None),
-                ("TREE_SITTER_HIDE_SYMBOLS", None),
+                ("PY_SSIZE_T_CLEAN", None)
             ],
-            include_dirs=["src"],
+            include_dirs=["tree-sitter-pandoc-markdown/src"],
             py_limited_api=True,
         )
     ],

@@ -1,10 +1,10 @@
 {
   "grammars": [
     {
-      "name": "pandoc-markdown",
-      "camelcase": "PandocMarkdown",
-      "scope": "text.pandoc_markdown",
-      "path": "tree-sitter-pandoc-markdown",
+      "name": "@grammars/markdown",
+      "camelcase": "GrammarsMarkdown",
+      "scope": "text.markdown",
+      "path": "tree-sitter-markdown",
       "external-files": [
         "common/common.js"
       ],
@@ -18,8 +18,8 @@
       "injection-regex": "^(markdown|md|qmd|rmd)$"
     },
     {
-      "name": "pandoc-markdown",
-      "camelcase": "PandocMarkdown",
+      "name": "@grammars/pandoc_markdown",
+      "camelcase": "GrammarsPandocMarkdown",
       "scope": "text.pandoc_markdown_inline",
       "path": "tree-sitter-pandoc-markdown-inline",
       "external-files": [
@@ -33,11 +33,11 @@
   "metadata": {
     "version": "0.1.0",
     "license": "MIT",
-    "description": "Treesitter parser for markdown with pandoc extensions",
+    "description": "Pandoc Markdown grammar for tree-sitter",
     "authors": [
       {
         "name": "Jannik Buhr",
-        "email": "jannik.m.buhr@gmail.com"
+        "url": "https://jmbuhr.de"
       }
     ],
     "links": {
