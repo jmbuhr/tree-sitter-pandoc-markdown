@@ -1034,7 +1034,10 @@ __(__foo)
 
 --------------------------------------------------------------------------------
 
-(inline)
+(inline
+  (emphasis
+    (emphasis_delimiter)
+    (emphasis_delimiter)))
 
 ================================================================================
 Example 408 - https://github.github.com/gfm/#example-408

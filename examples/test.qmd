@@ -1,3 +1,6 @@
 # Heading 1
 
 Some paragraph.
+with a block comment:
+
+<!-- This is a comment -->

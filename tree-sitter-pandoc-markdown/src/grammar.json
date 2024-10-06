@@ -5138,6 +5138,14 @@
           }
         ]
       }
+    },
+    "todo": {
+      "type": "STRING",
+      "value": "TODO"
+    },
+    "block_comment": {
+      "type": "STRING",
+      "value": "<!-- -->"
     }
   },
   "extras": [],
