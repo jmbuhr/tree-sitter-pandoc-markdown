@@ -4,7 +4,7 @@
       "name": "@grammars/markdown",
       "camelcase": "GrammarsMarkdown",
       "scope": "text.markdown",
-      "path": "tree-sitter-markdown",
+      "path": "tree-sitter-pandoc-markdown",
       "external-files": [
         "common/common.js"
       ],

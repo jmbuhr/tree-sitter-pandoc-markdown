@@ -1,0 +1,11 @@
+prefix=@PREFIX@
+libdir=@LIBDIR@
+includedir=@INCLUDEDIR@
+
+Name: tree-sitter-pandoc-markdown-inline
+Description: Pandoc Markdown grammar for tree-sitter (inline)
+URL: @URL@
+Version: @VERSION@
+Requires: @REQUIRES@
+Libs: -L${libdir} @ADDITIONAL_LIBS@ -ltree-sitter-pandoc-markdown-inline
+Cflags: -I${includedir}
