@@ -1,0 +1,62 @@
+================================================================================
+Example 0 - HMTL code blocks
+================================================================================
+```html
+<div><p>hello</p></div>
+```
+--------------------------------------------------------------------------------
+
+(document
+  (section
+    (fenced_code_block
+      (fenced_code_block_delimiter)
+      (info_string
+        (language) = "html"
+      )
+      (block_continuation)
+      (code_fence_content
+        (block_continuation))
+      (fenced_code_block_delimiter))))
+
+================================================================================
+Example 1 - HMTL code blocks with curly
+================================================================================
+```{html}
+<div><p>hello</p></div>
+```
+
+--------------------------------------------------------------------------------
+
+(document
+  (section
+    (fenced_code_block
+      (fenced_code_block_delimiter)
+      (info_string
+        (language) = "html"
+      )
+      (block_continuation)
+      (code_fence_content
+        (block_continuation))
+      (fenced_code_block_delimiter))))
+
+================================================================================
+Example 2 - Raw HMTL code blocks with =
+================================================================================
+```{=html}
+<div><p>hello</p></div>
+```
+
+--------------------------------------------------------------------------------
+
+(document
+  (section
+    (fenced_code_block
+      (fenced_code_block_delimiter)
+      (info_string
+        (language) = "html"
+      )
+      (block_continuation)
+      (code_fence_content
+        (block_continuation))
+      (fenced_code_block_delimiter))))
+

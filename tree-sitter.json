@@ -1,9 +1,9 @@
 {
   "grammars": [
     {
-      "name": "@grammars/markdown",
-      "camelcase": "GrammarsMarkdown",
-      "scope": "text.markdown",
+      "name": "@grammars/pandoc_markdown",
+      "camelcase": "GrammarsPandocMarkdown",
+      "scope": "text.pandoc_markdown",
       "path": "tree-sitter-pandoc-markdown",
       "external-files": [
         "common/common.js"
@@ -15,11 +15,11 @@
       ],
       "highlights": "tree-sitter-pandoc-markdown/queries/highlights.scm",
       "injections": "tree-sitter-pandoc-markdown/queries/injections.scm",
-      "injection-regex": "^(markdown|md|qmd|rmd)$"
+      "injection-regex": "^(markdown|md|qmd|rmd|quarto)$"
     },
     {
-      "name": "@grammars/pandoc_markdown",
-      "camelcase": "GrammarsPandocMarkdown",
+      "name": "@grammars/pandoc_markdown_inline",
+      "camelcase": "GrammarsPandocMarkdownInline",
       "scope": "text.pandoc_markdown_inline",
       "path": "tree-sitter-pandoc-markdown-inline",
       "external-files": [
