@@ -34,4 +34,6 @@ vim.treesitter.language.add('pandoc_markdown_inline', { path = "/usr/local/lib/l
 vim.treesitter.language.register('pandoc_markdown', { 'quarto', 'rmarkdown' })
 ```
 
+Add some querries for highlighting and injections for the pandoc-markdowm filetype e.g. from https://github.com/quarto-dev/quarto-nvim/pull/160/
+
 Open e.g. a quarto file `test.qmd`.
